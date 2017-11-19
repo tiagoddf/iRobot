@@ -17,6 +17,7 @@ import java.util.logging.Logger;
  */
 public class iRobot_Functions {
   Robot r;
+ int a;
   public void Wait(int i)
   {
       Robot r;
