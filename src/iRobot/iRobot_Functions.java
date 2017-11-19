@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class iRobot_Functions {
   Robot r;
-  private void Wait(int i)
+  public void Wait(int i)
   {
       Robot r;
       try {
@@ -27,7 +27,7 @@ public class iRobot_Functions {
           Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
-  private void MouseClick(String Type, int X, int Y)
+  public void MouseClick(String Type, int X, int Y)
   {
       try {
         r = new Robot();
@@ -47,7 +47,7 @@ public class iRobot_Functions {
         Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
-  private void Send(int i)
+  public void Send(int i)
   {
       try {
         r = new Robot();
@@ -58,7 +58,7 @@ public class iRobot_Functions {
           Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
-  private void Send(String s)
+  public void Send(String s)
   {
     byte[] bytes = s.getBytes();
     for (byte b : bytes)
