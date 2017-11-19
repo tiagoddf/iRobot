@@ -1,4 +1,5 @@
 package CadastrarFicha;
+package iRobot;
 
 import java.awt.AWTException;
 import java.awt.Robot;
