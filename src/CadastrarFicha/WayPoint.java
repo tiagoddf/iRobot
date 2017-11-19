@@ -8,7 +8,6 @@ public class WayPoint
 {
   public static void main(String[] args) throws AWTException
   {
-      int b;
       iRobot_Functions irf = new iRobot_Functions();
       irf.Wait(5000);
       irf.Wait(1000);
