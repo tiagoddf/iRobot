@@ -17,6 +17,16 @@ import java.util.logging.Logger;
  */
 public class iRobot_Functions {
   Robot r;
+  private void Wait(int i)
+  {
+      Robot r;
+      try {
+          r = new Robot();
+          r.delay(i);
+      } catch (AWTException ex) {
+          Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+      }
+  }
   private void MouseClick(String Type, int X, int Y)
   {
       try {
