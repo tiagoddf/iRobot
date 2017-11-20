@@ -6,10 +6,15 @@
 package iRobot;
 
 import java.awt.AWTException;
+import java.awt.Color;
+import java.awt.MouseInfo;
+import java.awt.Point;
+import java.awt.PointerInfo;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,9 +22,20 @@ import java.util.logging.Logger;
  */
 public class iRobot_Functions {
   Robot r;
-  // (futuro)
-  // http://www.java2s.com/Code/JavaAPI/java.awt/RobotcreateScreenCaptureRectanglescreenRect.htm
-  // http://www.java2s.com/Code/JavaAPI/java.awt/RobotgetPixelColorintxinty.htm
+  // http://www.java2s.com/Code/JavaAPI/java.awt/RobotcreateScreenCaptureRectanglescreenRect.htm (futuro)
+  public void MouseInfo()
+  {
+    Wait(5000);
+    // get mouse pos
+    PointerInfo a = MouseInfo.getPointerInfo();
+    Point b  = a.getLocation();
+    int x = (int)b.getX();
+    int y = (int)b.getY();
+    // get pixel colors
+    Color color = r.getPixelColor(x, y);
+    JOptionPane.showMessageDialog(null, "Mouse X:" + x + "\nMouse Y" + y);
+    //JOptionPane.showMessageDialog(null, "Mouse X:" + x + "\nMouse Y" + y + "\n\nRed:"+ color.getRed() + "Green" + color.getGreen() + "Blue:" + color.getBlue());
+  }
   public void Wait(int i)
   {
       Robot r;
@@ -66,6 +82,19 @@ public class iRobot_Functions {
         Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
+  // pressionar teclas
+  public void Press(int keyCode) {
+      try {
+        r = new Robot();
+        r.keyPress(keyCode);
+        r.delay(200);
+        r.keyRelease(keyCode);
+        r.delay(200);
+      } catch (AWTException ex) {
+        Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+      }
+  }
+  // mandar textos     
   public void Send(int i)
   {
       try {
