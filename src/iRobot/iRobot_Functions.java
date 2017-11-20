@@ -17,6 +17,9 @@ import java.util.logging.Logger;
  */
 public class iRobot_Functions {
   Robot r;
+  // (futuro)
+  // http://www.java2s.com/Code/JavaAPI/java.awt/RobotcreateScreenCaptureRectanglescreenRect.htm
+  // http://www.java2s.com/Code/JavaAPI/java.awt/RobotgetPixelColorintxinty.htm
   public void Wait(int i)
   {
       Robot r;
@@ -31,18 +34,34 @@ public class iRobot_Functions {
   {
       try {
         r = new Robot();
-        /*  
-        Types:
-        left
-        right
-        middle
-        */
-        r.mouseMove(X, Y);
-        r.delay(200);
-        r.mousePress(InputEvent.BUTTON1_MASK);
-        r.delay(200);
-        r.mouseRelease(InputEvent.BUTTON1_MASK);
-        r.delay(200);
+        switch (Type) {
+              case "left":
+                  r.mouseMove(X, Y);
+                  r.delay(200);
+                  r.mousePress(InputEvent.BUTTON1_MASK);
+                  r.delay(200);
+                  r.mouseRelease(InputEvent.BUTTON1_MASK);
+                  r.delay(200);
+                  break;
+              case "middle":
+                  r.mouseMove(X, Y);
+                  r.delay(200);
+                  r.mousePress(InputEvent.BUTTON2_MASK);
+                  r.delay(200);
+                  r.mouseRelease(InputEvent.BUTTON2_MASK);
+                  r.delay(200);
+                  break;
+              case "right":
+                  r.mouseMove(X, Y);
+                  r.delay(200);
+                  r.mousePress(InputEvent.BUTTON3_MASK);
+                  r.delay(200);
+                  r.mouseRelease(InputEvent.BUTTON3_MASK);
+                  r.delay(200);
+                  break;
+              default:
+                  break;
+          }
       } catch (AWTException ex) {
         Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }

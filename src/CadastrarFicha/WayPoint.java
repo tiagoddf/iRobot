@@ -1,6 +1,5 @@
 package CadastrarFicha;
 import java.awt.AWTException;
-import java.awt.Robot;
 import iRobot.iRobot_Functions;
 
 
@@ -10,11 +9,8 @@ public class WayPoint
   {
       iRobot_Functions irf = new iRobot_Functions();
       irf.Wait(5000);
-      irf.Wait(1000);
       irf.MouseClick("left", 100, 100);
       irf.Wait(1000);
       irf.Send("This is a iRobot test!");
-      
-
   }  
 }
