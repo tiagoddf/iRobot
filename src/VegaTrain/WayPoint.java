@@ -12,9 +12,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
  * @author tiago
- */
+*/
 public class WayPoint
 {
   public void AntiIdle()
@@ -34,7 +33,7 @@ public class WayPoint
   }
   public void TreinarVega()
   {
-      while(rodandobot == true) {
+      while(getBotStatus() == true) {
         iRobot_Functions irf = new iRobot_Functions();
         /* CHAR 1 */
         // come food

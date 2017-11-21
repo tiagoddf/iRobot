@@ -81,13 +81,16 @@ public class telaVegaTrain extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton_getMouseInfoActionPerformed
 
     private void jToggleButton_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_StatusActionPerformed
-        if(rodandobot == false) {
+        WayPoint wf = new WayPoint();
+        if(getBotStatus() == false) {
             jToggleButton_Status.setText("PAUSE");
-            rodandobot = true;
+            setBotStatus(true);
+            wf.TreinarVega();
         }
-        else if(rodandobot == true) {
+        else if(getBotStatus() == true) {
             jToggleButton_Status.setText("PLAY");
-            rodandobot = false;
+            setBotStatus(false);
+            wf.TreinarVega();
         }
     }//GEN-LAST:event_jToggleButton_StatusActionPerformed
 
@@ -122,8 +125,6 @@ public class telaVegaTrain extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new telaVegaTrain().setVisible(true);
-                WayPoint wf = new WayPoint();
-                wf.TreinarVega();
             }
         });
     }
