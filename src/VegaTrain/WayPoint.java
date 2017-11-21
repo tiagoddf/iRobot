@@ -14,8 +14,11 @@ import java.util.logging.Logger;
 /**
  * @author tiago
 */
+
+
 public class WayPoint
 {
+    beansVegaTrain beans = new beansVegaTrain();
   public void AntiIdle()
   {
       try {
@@ -31,9 +34,9 @@ public class WayPoint
           Logger.getLogger(WayPoint.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
-  public void TreinarVega()
+  public void TreinarVega(beansVegaTrain beans)
   {
-      while(getBotStatus() == true) {
+      while(beans.getBotStatus() == true) {
         iRobot_Functions irf = new iRobot_Functions();
         /* CHAR 1 */
         // come food

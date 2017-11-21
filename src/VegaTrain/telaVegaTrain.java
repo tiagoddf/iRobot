@@ -16,6 +16,8 @@ public class telaVegaTrain extends javax.swing.JFrame {
     /**
      * Creates new form telaVegaTrain
      */
+    
+        beansVegaTrain beans = new beansVegaTrain();
     boolean rodandobot = false;
     public telaVegaTrain() {
         initComponents();
@@ -82,15 +84,15 @@ public class telaVegaTrain extends javax.swing.JFrame {
 
     private void jToggleButton_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_StatusActionPerformed
         WayPoint wf = new WayPoint();
-        if(getBotStatus() == false) {
+        if(beans.getBotStatus() == false) {
             jToggleButton_Status.setText("PAUSE");
-            setBotStatus(true);
-            wf.TreinarVega();
+            beans.setBotStatus(true);
+            wf.TreinarVega(beans);
         }
-        else if(getBotStatus() == true) {
+        else if(beans.getBotStatus() == true) {
             jToggleButton_Status.setText("PLAY");
-            setBotStatus(false);
-            wf.TreinarVega();
+            beans.setBotStatus(false);
+            wf.TreinarVega(beans);
         }
     }//GEN-LAST:event_jToggleButton_StatusActionPerformed
 
