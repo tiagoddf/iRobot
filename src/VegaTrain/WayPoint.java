@@ -40,39 +40,38 @@ public class WayPoint
   {
       
        t1 = new Thread(){   // thread 1
-          @Override
-          public void run(){
-         while(beans.getBotStatus()){
-        iRobot_Functions irf = new iRobot_Functions();
-        /* CHAR 1 */
-        // come food
-        irf.Press(KeyEvent.VK_F2);
-        irf.Wait(1000);
-        // exura
-        irf.Press(KeyEvent.VK_F3);
-        irf.Wait(1000);
-        // anti-idle (rodadinha)
-        AntiIdle();
-        // mudar de janela char 2
-        irf.MouseClick("left", 2, 2);
-        if(beans.getBotStatus()==true){ // Caso aperte o BOTAO PAUSE e esteja no meio do while parar aqui... 
-        /* CHAR 2 */
-        // come food
-        irf.Press(KeyEvent.VK_F2);
-        irf.Wait(1000);
-        // exura
-        irf.Press(KeyEvent.VK_F3);
-        irf.Wait(1000);
-        // anti-idle (rodadinha)
-        AntiIdle();
-        // mudar janela char 1
-        irf.MouseClick("left", 1, 1);
+        @Override
+        public void run() {
+        while(beans.getBotStatus() == true) {
+            iRobot_Functions irf = new iRobot_Functions();
+            /* CHAR 1 */
+            // come food
+            irf.Press(KeyEvent.VK_F2);
+            irf.Wait(1000);
+            // exura
+            irf.Press(KeyEvent.VK_F3);
+            irf.Wait(1000);
+            // anti-idle (rodadinha)
+            AntiIdle();
+            // mudar de janela char 2
+            irf.MouseClick("left", 2, 2);
+        if(beans.getBotStatus()== true) { // Caso aperte o BOTAO PAUSE e esteja no meio do while parar aqui... 
+            /* CHAR 2 */
+            // come food
+            irf.Press(KeyEvent.VK_F2);
+            irf.Wait(1000);
+            // exura
+            irf.Press(KeyEvent.VK_F3);
+            irf.Wait(1000);
+            // anti-idle (rodadinha)
+            AntiIdle();
+            // mudar janela char 1
+            irf.MouseClick("left", 1, 1);
         }
-       } 
+       }
           
-      }
-          
-            };t1.start();
-    
-  }  
+      }  
+    };t1.start();
+}
+
 }

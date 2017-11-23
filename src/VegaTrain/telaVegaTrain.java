@@ -14,10 +14,9 @@ import iRobot.iRobot_Functions;
 public class telaVegaTrain extends javax.swing.JFrame {
 
     /**
-     * Creates new form telaVegaTrain
-     */
-    
-        beansVegaTrain beans = new beansVegaTrain();
+        * Creates new form telaVegaTrain
+    */
+    beansVegaTrain beans = new beansVegaTrain();
     boolean rodandobot = false;
     public telaVegaTrain() {
         initComponents();
@@ -88,19 +87,12 @@ public class telaVegaTrain extends javax.swing.JFrame {
             jToggleButton_Status.setText("PAUSE");           
             beans.setBotStatus(true);
             wf.TreinarVega(beans);
-            
         }
-        else{           
+        else {           
             jToggleButton_Status.setText("PLAY");
-                beans.setBotStatus(false);
+            beans.setBotStatus(false);
             wf.t1.interrupt(); // interromper a thread que roda o macro
-           
-           // wf.TreinarVega(beans);
-            
-            
-            
         }
-        
     }//GEN-LAST:event_jToggleButton_StatusActionPerformed
 
     /**
