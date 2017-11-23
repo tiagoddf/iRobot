@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 
 public class WayPoint
 {
+      Thread t1; // Thread t1 para o metodo VegaTrain
     beansVegaTrain beans = new beansVegaTrain();
   public void AntiIdle()
   {
@@ -34,9 +35,14 @@ public class WayPoint
           Logger.getLogger(WayPoint.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
+
   public void TreinarVega(beansVegaTrain beans)
   {
-      while(beans.getBotStatus() == true) {
+      
+       t1 = new Thread(){   // thread 1
+          @Override
+          public void run(){
+         while(beans.getBotStatus()){
         iRobot_Functions irf = new iRobot_Functions();
         /* CHAR 1 */
         // come food
@@ -49,6 +55,7 @@ public class WayPoint
         AntiIdle();
         // mudar de janela char 2
         irf.MouseClick("left", 2, 2);
+        if(beans.getBotStatus()==true){ // Caso aperte o BOTAO PAUSE e esteja no meio do while parar aqui... 
         /* CHAR 2 */
         // come food
         irf.Press(KeyEvent.VK_F2);
@@ -60,6 +67,12 @@ public class WayPoint
         AntiIdle();
         // mudar janela char 1
         irf.MouseClick("left", 1, 1);
+        }
+       } 
+          
       }
+          
+            };t1.start();
+    
   }  
 }

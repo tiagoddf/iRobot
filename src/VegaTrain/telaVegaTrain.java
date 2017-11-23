@@ -85,15 +85,22 @@ public class telaVegaTrain extends javax.swing.JFrame {
     private void jToggleButton_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_StatusActionPerformed
         WayPoint wf = new WayPoint();
         if(beans.getBotStatus() == false) {
-            jToggleButton_Status.setText("PAUSE");
+            jToggleButton_Status.setText("PAUSE");           
             beans.setBotStatus(true);
             wf.TreinarVega(beans);
+            
         }
-        else if(beans.getBotStatus() == true) {
+        else{           
             jToggleButton_Status.setText("PLAY");
-            beans.setBotStatus(false);
-            wf.TreinarVega(beans);
+                beans.setBotStatus(false);
+            wf.t1.interrupt(); // interromper a thread que roda o macro
+           
+           // wf.TreinarVega(beans);
+            
+            
+            
         }
+        
     }//GEN-LAST:event_jToggleButton_StatusActionPerformed
 
     /**
