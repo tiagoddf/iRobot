@@ -5,6 +5,8 @@
  */
 package CadastrarFicha;
 
+import iRobot.iRobot_Functions;
+
 /**
  *
  * @author tduarte
@@ -14,6 +16,8 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
     /**
      * Creates new form telaCadastrarFicha
      */
+    beansCadastrarFicha beans = new beansCadastrarFicha();
+    boolean rodandobot = false;
     public telaCadastrarFicha() {
         initComponents();
     }
@@ -38,7 +42,7 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton_Status = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +65,12 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ATB", "JAB", "JRS", "MRF", "MHN", "BSB", "SP" }));
 
-        jToggleButton1.setText("PLAY");
+        jToggleButton_Status.setText("PLAY");
+        jToggleButton_Status.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton_StatusActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,7 +90,7 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
+                        .addGap(51, 51, 51)
                         .addComponent(jLabel2)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -98,6 +107,10 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
                                 .addComponent(jLabel3)
                                 .addGap(45, 45, 45))))))
             .addGroup(layout.createSequentialGroup()
+                .addGap(60, 60, 60)
+                .addComponent(jLabel1)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(130, 130, 130)
@@ -106,13 +119,9 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
                         .addGap(159, 159, 159)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(77, 77, 77)
+                        .addComponent(jToggleButton_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,13 +146,27 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jToggleButton_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_StatusActionPerformed
+        WayPoint wf = new WayPoint();
+        if(beans.getBotStatus() == false) {
+            jToggleButton_Status.setText("PAUSE");           
+            beans.setBotStatus(true);
+            wf.TreinarVega(beans);
+        }
+        else {           
+            jToggleButton_Status.setText("PLAY");
+            beans.setBotStatus(false);
+            wf.t1.interrupt(); // interromper a thread que roda o macro
+        }
+    }//GEN-LAST:event_jToggleButton_StatusActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +215,6 @@ public class telaCadastrarFicha extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton_Status;
     // End of variables declaration//GEN-END:variables
 }

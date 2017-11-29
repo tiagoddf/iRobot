@@ -18,8 +18,8 @@ import java.util.logging.Logger;
 
 public class WayPoint
 {
-      Thread t1; // Thread t1 para o metodo VegaTrain
-    beansVegaTrain beans = new beansVegaTrain();
+  Thread t1; // Thread t1 para o metodo VegaTrain
+  beansVegaTrain beans = new beansVegaTrain();
   public void AntiIdle()
   {
       try {
@@ -39,7 +39,7 @@ public class WayPoint
   public void TreinarVega(beansVegaTrain beans)
   {
       
-       t1 = new Thread(){   // thread 1
+        t1 = new Thread(){   // thread 1
         @Override
         public void run() {
         while(beans.getBotStatus() == true) {

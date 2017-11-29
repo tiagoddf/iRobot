@@ -25,16 +25,11 @@ public class iRobot_Functions {
   // http://www.java2s.com/Code/JavaAPI/java.awt/RobotcreateScreenCaptureRectanglescreenRect.htm (futuro)
   public void MouseInfo()
   {
-    Wait(5000);
+    Wait(2500);
     // get mouse pos
-    PointerInfo a = MouseInfo.getPointerInfo();
-    Point b  = a.getLocation();
-    int x = (int)b.getX();
-    int y = (int)b.getY();
-    // get pixel colors
-    Color color = r.getPixelColor(x, y);
-    JOptionPane.showMessageDialog(null, "Mouse X:" + x + "\nMouse Y" + y);
-    //JOptionPane.showMessageDialog(null, "Mouse X:" + x + "\nMouse Y" + y + "\n\nRed:"+ color.getRed() + "Green" + color.getGreen() + "Blue:" + color.getBlue());
+    int mouseY = MouseInfo.getPointerInfo().getLocation().y;
+    int mouseX = MouseInfo.getPointerInfo().getLocation().x;   
+    JOptionPane.showMessageDialog(null, "Mouse X:" + mouseX + "\nMouse Y" + mouseY);
   }
   public void Wait(int i)
   {
