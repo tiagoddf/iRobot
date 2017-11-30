@@ -12,12 +12,13 @@ package CadastrarFicha;
 public class beansCadastrarFicha {
     private boolean rodandobot;
     
-    private String usuario;
     private String nome;
     private String sobrenome;
     private String cargo;
     private String estado;
     private String equipe;
+    private String usuario;
+    private String senha;
     
     public boolean getBotStatus() {
         return rodandobot;

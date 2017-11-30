@@ -29,7 +29,7 @@ public class iRobot_Functions {
     // get mouse pos
     int mouseY = MouseInfo.getPointerInfo().getLocation().y;
     int mouseX = MouseInfo.getPointerInfo().getLocation().x;   
-    JOptionPane.showMessageDialog(null, "Mouse X:" + mouseX + "\nMouse Y" + mouseY);
+    JOptionPane.showMessageDialog(null, "Mouse X:" + mouseX + "\nMouse Y:" + mouseY);
   }
   public void Wait(int i)
   {
