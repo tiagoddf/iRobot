@@ -20,6 +20,12 @@ public class WayPoint
 {
   Thread t1; // Thread t1 para o metodo VegaTrain
   beansVegaTrain beans = new beansVegaTrain();
+  int espera = beans.getDelayinterval();
+  int x1 = beans.getXposTela1();
+  int y1 = beans.getYposTela1();
+  int x2 = beans.getXposTela2();
+  int y2 = beans.getYposTela2();
+  
   public void AntiIdle()
   {
       try {
@@ -38,35 +44,43 @@ public class WayPoint
 
   public void TreinarVega(beansVegaTrain beans)
   {
-      
         t1 = new Thread(){   // thread 1
         @Override
         public void run() {
         while(beans.getBotStatus() == true) {
+            System.out.println(espera);
+            System.out.println(x1);
+            System.out.println(y1);
+            System.out.println(x2);
+            System.out.println(y2);
             iRobot_Functions irf = new iRobot_Functions();
             /* CHAR 1 */
+            // mudar de janela char 1
+            irf.Wait(espera);
+            irf.MouseClick("left", x1, y1);
             // come food
+            irf.Wait(espera);
             irf.Press(KeyEvent.VK_F2);
-            irf.Wait(1000);
             // exura
+            irf.Wait(espera);
             irf.Press(KeyEvent.VK_F3);
-            irf.Wait(1000);
             // anti-idle (rodadinha)
+            irf.Wait(espera);
             AntiIdle();
-            // mudar de janela char 2
-            irf.MouseClick("left", 2, 2);
         if(beans.getBotStatus()== true) { // Caso aperte o BOTAO PAUSE e esteja no meio do while parar aqui... 
             /* CHAR 2 */
+            // mudar janela char 2
+            irf.Wait(espera);
+             irf.MouseClick("left", x2, y2);
             // come food
+            irf.Wait(espera);
             irf.Press(KeyEvent.VK_F2);
-            irf.Wait(1000);
             // exura
+            irf.Wait(espera);
             irf.Press(KeyEvent.VK_F3);
-            irf.Wait(1000);
             // anti-idle (rodadinha)
+            irf.Wait(espera);
             AntiIdle();
-            // mudar janela char 1
-            irf.MouseClick("left", 1, 1);
         }
        }
           
