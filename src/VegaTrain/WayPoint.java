@@ -48,11 +48,11 @@ public class WayPoint
         @Override
         public void run() {
         while(beans.getBotStatus() == true) {
-            System.out.println(espera);
-            System.out.println(x1);
-            System.out.println(y1);
-            System.out.println(x2);
-            System.out.println(y2);
+            System.out.println("========================================");
+            System.out.println("Espera: " + espera);
+            System.out.println("X1: " + x1 + " Y1: " + y1);
+            System.out.println("X2: " + x2 + " Y2: " + y2);
+            System.out.println("========================================");
             iRobot_Functions irf = new iRobot_Functions();
             /* CHAR 1 */
             // mudar de janela char 1
