@@ -33,8 +33,18 @@ public class telaVegaTrain extends javax.swing.JFrame {
 
         jButton_getMouseInfo = new javax.swing.JButton();
         jToggleButton_Status = new javax.swing.JToggleButton();
+        jTextField_DelayInterval = new javax.swing.JTextField();
+        jTextField_XposTela1 = new javax.swing.JTextField();
+        jTextField_YposTela1 = new javax.swing.JTextField();
+        jTextField_XposTela2 = new javax.swing.JTextField();
+        jTextField_YposTela2 = new javax.swing.JTextField();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("iRobot");
 
         jButton_getMouseInfo.setText("getMouseInfo");
         jButton_getMouseInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -50,27 +60,101 @@ public class telaVegaTrain extends javax.swing.JFrame {
             }
         });
 
+        jTextField_DelayInterval.setText("Delay Interval");
+        jTextField_DelayInterval.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_DelayIntervalMouseClicked(evt);
+            }
+        });
+        jTextField_DelayInterval.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField_DelayIntervalActionPerformed(evt);
+            }
+        });
+
+        jTextField_XposTela1.setText("XposTela1");
+        jTextField_XposTela1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_XposTela1MouseClicked(evt);
+            }
+        });
+
+        jTextField_YposTela1.setText("YposTela1");
+        jTextField_YposTela1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_YposTela1MouseClicked(evt);
+            }
+        });
+
+        jTextField_XposTela2.setText("XposTela2");
+        jTextField_XposTela2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_XposTela2MouseClicked(evt);
+            }
+        });
+
+        jTextField_YposTela2.setText("YposTela2");
+        jTextField_YposTela2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_YposTela2MouseClicked(evt);
+            }
+        });
+
+        jMenu1.setText("File");
+
+        jMenuItem1.setText("Save As");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Load");
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton_Status, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addComponent(jButton_getMouseInfo)
-                .addGap(43, 43, 43))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField_XposTela1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField_YposTela1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextField_DelayInterval, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(jTextField_XposTela2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextField_YposTela2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton_getMouseInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jToggleButton_Status, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton_getMouseInfo)
+                .addComponent(jButton_getMouseInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton_Status)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField_YposTela1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_XposTela1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField_YposTela2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_XposTela2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField_DelayInterval, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jToggleButton_Status, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -84,6 +168,13 @@ public class telaVegaTrain extends javax.swing.JFrame {
     private void jToggleButton_StatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton_StatusActionPerformed
         WayPoint wf = new WayPoint();
         if(beans.getBotStatus() == false) {
+            beans.setDelayinterval(Integer.parseInt(jTextField_DelayInterval.getText()));
+            
+            beans.setXposTela1(Integer.parseInt(jTextField_XposTela1.getText()));
+            beans.setYposTela1(Integer.parseInt(jTextField_YposTela1.getText()));
+            beans.setXposTela2(Integer.parseInt(jTextField_XposTela2.getText()));
+            beans.setYposTela2(Integer.parseInt(jTextField_YposTela2.getText()));
+            
             jToggleButton_Status.setText("PAUSE");           
             beans.setBotStatus(true);
             wf.TreinarVega(beans);
@@ -94,6 +185,40 @@ public class telaVegaTrain extends javax.swing.JFrame {
             wf.t1.interrupt(); // interromper a thread que roda o macro
         }
     }//GEN-LAST:event_jToggleButton_StatusActionPerformed
+
+    private void jTextField_DelayIntervalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_DelayIntervalMouseClicked
+       if(jTextField_DelayInterval.getText().equals("Delay Interval")){
+           jTextField_DelayInterval.setText("");
+       }  
+    }//GEN-LAST:event_jTextField_DelayIntervalMouseClicked
+
+    private void jTextField_DelayIntervalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_DelayIntervalActionPerformed
+
+    }//GEN-LAST:event_jTextField_DelayIntervalActionPerformed
+
+    private void jTextField_XposTela1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_XposTela1MouseClicked
+       if(jTextField_XposTela1.getText().equals("XposTela1")){
+           jTextField_XposTela1.setText("");
+       }  
+    }//GEN-LAST:event_jTextField_XposTela1MouseClicked
+
+    private void jTextField_YposTela1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_YposTela1MouseClicked
+       if(jTextField_YposTela1.getText().equals("YposTela1")){
+           jTextField_YposTela1.setText("");
+       }  
+    }//GEN-LAST:event_jTextField_YposTela1MouseClicked
+
+    private void jTextField_XposTela2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_XposTela2MouseClicked
+       if(jTextField_XposTela2.getText().equals("XposTela2")){
+           jTextField_XposTela2.setText("");
+       }  
+    }//GEN-LAST:event_jTextField_XposTela2MouseClicked
+
+    private void jTextField_YposTela2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_YposTela2MouseClicked
+       if(jTextField_YposTela2.getText().equals("YposTela2")){
+           jTextField_YposTela2.setText("");
+       }  
+    }//GEN-LAST:event_jTextField_YposTela2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -132,6 +257,15 @@ public class telaVegaTrain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_getMouseInfo;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JTextField jTextField_DelayInterval;
+    private javax.swing.JTextField jTextField_XposTela1;
+    private javax.swing.JTextField jTextField_XposTela2;
+    private javax.swing.JTextField jTextField_YposTela1;
+    private javax.swing.JTextField jTextField_YposTela2;
     private javax.swing.JToggleButton jToggleButton_Status;
     // End of variables declaration//GEN-END:variables
 }
