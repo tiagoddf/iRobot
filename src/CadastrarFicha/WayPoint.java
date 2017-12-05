@@ -45,6 +45,137 @@ public class WayPoint
         while(beans.getBotStatus() == true) {
             iRobot_Functions irf = new iRobot_Functions();
             if(beans.getBotStatus()== true) {
+                /* Logando RDP */
+                irf.MouseClick("left", 105, 584); // desktop LXDE func
+                irf.MouseClick("left", 60, 249); // 3 icone LXTerminal
+                irf.Press(KeyEvent.VK_ENTER); // enter pra abrir LXTERMINAL selecionado
+                irf.Send("rdesktop rj-dc-01");
+                irf.Press(KeyEvent.VK_ENTER);
+                irf.MouseClick("left", 536, 210); // outro usuario
+                // apagar 16 caracteres do usuário que vem em padrão
+                for(int i = 1; i < 16; i++) { irf.Press(KeyEvent.VK_BACK_SPACE); }
+                irf.Send("BASILIO\analista03");
+                irf.Press(KeyEvent.VK_TAB);
+                irf.Send("*SENHAANALISTA*");
+                irf.Press(KeyEvent.VK_ENTER);
+                
+                /* Cadastra no AD */
+                irf.MouseClick("left", 30, 161); // gerenciador de usuário
+                // não se esquecer de ao fechar o gerenciador de usuário deixar com a aba escritorio aberta e todos minimizados
+                if(estado == RJ) {
+                    irf.MouseClick("left", 119, 309); // abrir aba RJ
+                    if(cargo == Advogado) {
+                        irf.MouseClick("left", 187, 325); // OU advogados
+                    }
+                    else if(cargo == Estagiario) {
+                        irf.MouseClick("left", 194, 362); // OU estagiarios
+                    }
+                    else if(cargo == Funcionario) {
+                        irf.MouseClick("left", 193, 380); // OU funcionario
+                    }
+                    irf.MouseClick("left", 347, 79); // criar um novo usuário no container atual
+                    irf.Send("Tiago");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("Duarte");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("tduarte");
+                    irf.Press(KeyEvent.VK_ENTER);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.MouseClick("left", 106, 211); // desmarcar "O usuário deve..."
+                    irf.MouseClick("left", 107, 263); // marcar "A senha nunca expira"
+                    irf.Press(KeyEvent.VK_ENTER); // pra avançar
+                    irf.Press(KeyEvent.VK_ENTER); // pra concluir
+                    irf.MouseClick("left", 119, 309); // fechar aba RJ
+                }
+                else if(estado == SP) {
+                    irf.MouseClick("left", 118, 326); // abrir aba SP
+                    if(cargo == Advogado) {
+                        irf.MouseClick("left", 198, 362); // OU advogados
+                    }
+                    else if(cargo == Estagiario) {
+                        irf.MouseClick("left", 197, 398); // OU estagiarios
+                    }
+                    else if(cargo == Funcionario) {
+                        irf.MouseClick("left", 188, 416); // OU funcionario
+                    }
+                    irf.MouseClick("left", 347, 79); // criar um novo usuário no container atual
+                    irf.Send("Tiago");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("Duarte");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("tduarte");
+                    irf.Press(KeyEvent.VK_ENTER);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.MouseClick("left", 106, 211); // desmarcar "O usuário deve..."
+                    irf.MouseClick("left", 107, 263); // marcar "A senha nunca expira"
+                    irf.Press(KeyEvent.VK_ENTER); // pra avançar
+                    irf.Press(KeyEvent.VK_ENTER); // pra concluir
+                    irf.MouseClick("left", 118, 326); // fechar aba SP
+                }
+                else if(estado == DF) {
+                    irf.MouseClick("left", 119, 291); // abrir aba BSB
+                    if(cargo == Advogado) {
+                        irf.MouseClick("left", 196, 325); // OU advogados
+                    }
+                    else if(cargo == Estagiario) {
+                        irf.MouseClick("left", 196, 361); // OU estagiarios
+                    }
+                    else if(cargo == Funcionario) {
+                        irf.MouseClick("left", 201, 378); // OU funcionario
+                    }
+                    irf.MouseClick("left", 347, 79); // criar um novo usuário no container atual
+                    irf.Send("Tiago");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("Duarte");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("tduarte");
+                    irf.Press(KeyEvent.VK_ENTER);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.Press(KeyEvent.VK_TAB);
+                    irf.Send("*SENHAPADRAO*");
+                    irf.MouseClick("left", 106, 211); // desmarcar "O usuário deve..."
+                    irf.MouseClick("left", 107, 263); // marcar "A senha nunca expira"
+                    irf.Press(KeyEvent.VK_ENTER); // pra avançar
+                    irf.Press(KeyEvent.VK_ENTER); // pra concluir
+                    irf.MouseClick("left", 119, 291); // fechar aba BSB
+                }
+                // fechar gerenciador de usuários
+                irf.MouseClick("left", 773, 28); // X
+            }
+            /* Cria Diretorio - permissões */
+            if(cargo == Advogado || cargo == Estagiario) {
+                if(beans.getBotStatus() == true) {
+                    irf.MouseClick("left", 29, 132); // pastinha
+                    if(estado == RJ) {
+                        irf.MouseClick("left", 328, 365); // unidade mapeada RJ
+                        irf.Press(KeyEvent.VK_ENTER);
+                        // pasta de adv ou est
+                        if(cargo == Advogado) {
+                            irf.MouseClick("left", 295, 258);
+                        }
+                        else if(cargo == Estagiario) {
+                            irf.MouseClick("left", 288, 426);
+                        }
+                        irf.Press(KeyEvent.VK_ENTER);
+                        irf.MouseClick("left", 484, 93); // nova pasta
+                        irf.Send("Tiago Duarte");
+                        irf.Press(KeyEvent.VK_ENTER);
+                        
+                    }
+                    irf.Press(KeyEvent.VK_ENTER);
+                }
+            }
+            if(beans.getBotStatus()== true) {
                 /* Cadastra no Exchange */
                 irf.MouseClick("left", 45, 106); // fav WebMail
                 irf.MouseClick("left", 194, 359); // button admin
@@ -61,20 +192,13 @@ public class WayPoint
                 irf.MouseClick("left", 28, 354); // senha_button
                 irf.MouseClick("left", 79, 451); // permita-me criar a senha
                 irf.MouseClick("left", 86, 486); // senha_textfield
-                irf.Send("SENHAPADRAO");
+                irf.Send("*SENHAPADRAO*");
                 irf.MouseClick("left", 792, 559); // descer tela
                 irf.MouseClick("left", 86, 460); // licenças_button
                 irf.MouseClick("left", 391, 523); // exchange online select
                 irf.MouseClick("left", 794, 561); // descer tela
                 irf.MouseClick("left", 26, 555); // adicionar_button
-            }
-            if(beans.getBotStatus()== true) {
-                /* Cadastra no AD */
-                // rdp
-            }
-            if(beans.getBotStatus()== true) {
-                /* Cria Diretorio - permissões */
-                // rdp
+                /* Adiciona ao Grupo do EXCHANGE (ultimo pra dar tempo de atualizar) */
             }
             if(beans.getBotStatus()== true) {
                 /* Cadastra no OTRS */
@@ -168,10 +292,6 @@ public class WayPoint
                 irf.MouseClick("left", 392, 524); // emailadress_textfield
                 irf.Send("tduarte@basilioadvogados.com.br");
                 irf.MouseClick("left", 666, 316); // ok_button
-            }
-            if(beans.getBotStatus()== true) {
-                /* Adiciona ao Grupo do EXCHANGE (ultimo pra dar tempo de atualizar) */
-                // ver navegações entre rdp e navegadores e timers de delay
             }
        }
           
