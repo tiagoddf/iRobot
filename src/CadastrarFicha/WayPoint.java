@@ -22,7 +22,7 @@ public class WayPoint
         @Override
         public void run() {
         while(beans.getBotStatus() == true) {
-            iRobot_Functions irlf = new iRobot_Functions();
+            Local_iRobot_Functions irlf = new Local_iRobot_Functions();
             if(beans.getBotStatus()== true) {
                 /* Logando RDP */
                 irlf.MouseClick("left", 105, 584); // desktop LXDE func
@@ -33,7 +33,7 @@ public class WayPoint
                 irlf.MouseClick("left", 536, 210); // outro usuario
                 // apagar 16 caracteres do usuário que vem em padrão
                 for(int i = 1; i < 16; i++) { irlf.Press(KeyEvent.VK_BACK_SPACE); }
-                irlf.Send("BASILIO\analista03");
+                irlf.Send("BASILIO'\'analista03");
                 irlf.Press(KeyEvent.VK_TAB);
                 irlf.Send("*SENHAANALISTA*");
                 irlf.Press(KeyEvent.VK_ENTER);

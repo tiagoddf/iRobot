@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author tduarte
  */
-public class iRobot_Functions {
+public class Local_iRobot_Functions {
   Robot r;
   public void MouseInfo()
   {
@@ -32,7 +32,7 @@ public class iRobot_Functions {
           r = new Robot();
           r.delay(i);
       } catch (AWTException ex) {
-          Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(Local_iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
   public void MouseClick(String Type, int X, int Y)
@@ -68,7 +68,7 @@ public class iRobot_Functions {
                   break;
           }
       } catch (AWTException ex) {
-        Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(Local_iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
   // pressionar teclas
@@ -80,7 +80,7 @@ public class iRobot_Functions {
         r.keyRelease(keyCode);
         r.delay(500);
       } catch (AWTException ex) {
-        Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(Local_iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
   // mandar textos     
@@ -92,7 +92,7 @@ public class iRobot_Functions {
         r.keyPress(i);
         r.keyRelease(i);
       } catch (AWTException ex) {
-          Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+          Logger.getLogger(Local_iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
   public void Send(String s)
@@ -109,7 +109,7 @@ public class iRobot_Functions {
             r.keyPress(code);
             r.keyRelease(code);
         } catch (AWTException ex) {
-            Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Local_iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
   }
