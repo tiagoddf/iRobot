@@ -1,14 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CadastrarFicha;
 
-/**
- *
- * @author tduarte
- */
+import java.time.Year;
+import java.util.Calendar;
+
 public class beansCadastrarFicha {
     private boolean rodandobot;
     
@@ -25,5 +19,63 @@ public class beansCadastrarFicha {
     }
     public void setBotStatus(boolean rodandobot) {
         this.rodandobot = rodandobot;
+    }
+    
+    public String getEstado() {
+        return estado;
+    }
+    public void setEstado(String str) {
+        this.estado = str;
+    }
+    public String getCargo() {
+        return cargo;
+    }
+    public void setCargo(String str) {
+        this.cargo = str;
+    }
+    public String getEquipe() {
+        return equipe;
+    }
+    public void setEquipe(String str) {
+        this.equipe = str;
+    }
+    
+    public String getNome() {
+        return nome;
+    }
+    public void setNome(String str) {
+        this.nome = str;
+    }
+    public String getSobreNome() {
+        return sobrenome;
+    }
+    public void setSobreNome(String str) {
+        this.sobrenome = str;
+    }
+        
+    // usuário e senha
+    // usuário = primeira letra nome + sobrenome [TUDO MINUSCULO]
+    // senha = primeira letra do nome (mantem maiusculo) + dia + ultimas 2 sobrenome + *
+    public String getUsuario() {
+        String nome1 = this.getNome();
+        char primeiraletra = nome1.charAt(0);
+        usuario = primeiraletra + this.getSobreNome();
+        String toLowerCase = usuario.toLowerCase();
+        return toLowerCase;
+    }
+    public String getSenha() { 
+        // primeira letra
+        String nome1 = this.getNome();
+        String lastOne = Character.toString(nome1.charAt(0));
+        // ano
+        Calendar now = Calendar.getInstance();
+        int year = now.get(Calendar.YEAR);
+        String yearInString = String.valueOf(year);
+        // ultimas 2 letras
+        String nome2 = this.getSobreNome(); 
+        String lastTwo = nome2.substring(nome2.length() - 2);
+        // 
+        senha = lastOne + yearInString + lastTwo + "!";
+        return senha;
     }
 }
