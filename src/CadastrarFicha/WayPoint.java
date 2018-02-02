@@ -19,8 +19,8 @@ public class WayPoint
   Thread t1; // Thread t1 para o metodo VegaTrain
   beansCadastrarFicha beans = new beansCadastrarFicha();
   String servidor = "rj-dc-01";
-  String admUsr = "BASILIO'\'analista03";
-  String admPass = "analistaPASS";
+  String admUsr = "BASILIO\\analista03";
+  String admPass = "analistapss";
   // as senhas do email estão lá embaixo SELIGA
   
   public void TreinarVega(beansCadastrarFicha beans)
@@ -37,15 +37,15 @@ public class WayPoint
                 irf.MouseClick("left", 60, 249); // 3 icone LXTerminal
                 irf.Wait(1000);
                 irf.Press(KeyEvent.VK_ENTER); // enter pra abrir LXTERMINAL selecionado
-                irf.Wait(1000);
+                irf.Wait(3000);
                 irf.Send("rdesktop " + servidor);
-                irf.Wait(1000);
+                irf.Wait(3000);
                 irf.Press(KeyEvent.VK_ENTER);
                 irf.Wait(1000);
                 irf.MouseClick("left", 536, 210); // outro usuario
                 irf.Wait(1000);
                 // apagar 16 caracteres do usuário que vem em padrão
-                for(int i = 1; i < 16; i++) { irf.Press(KeyEvent.VK_BACK_SPACE); }
+                for(int i = 0; i < 16; i++) { irf.Press(KeyEvent.VK_BACK_SPACE); }
                 irf.Wait(1000);
                 irf.Send(admUsr);
                 irf.Wait(1000);
@@ -523,13 +523,14 @@ public class WayPoint
             }
             if(beans.getBotStatus()== true) {
                 String sender = "tduarte@basilioadvogados.com.br";
-                String pass = "mailPASS";
+                String pass = "emailpss";
                 String title = "Alocação de Advogado - iRobot Mail";
                 String msg = "<font face=\"calibri\" color=\"#2471a3\" size=\"3\">Prezadas,<br/><br/>Chegou um novo "+ beans.getCargo() +" chamado <b>" + beans.getNome() + " " + beans.getSobreNome() + "</b><br/>Usuário:"+ beans.getEquipe() +"<br/>Equipe:"+ beans.getEquipe() +"<br/>Estado:"+ beans.getEstado() +".<br/><br/><br/>Poderiam aloca-lo no sistema <i>iRobot</i>?<br/><br/><br/></font><font face=\"arial\" color=\"0\" size=\"1\">Esse e-mail foi enviado automaticamente através do programa <b>iRobot</b> por favor não responda.";
                 String reciver = "ebrandao@basilioadvogados.com.br;jfonseca@basilioadvogados.com.br";
                 irf.Wait(1000);
                 irf.SendMail(sender, pass, title, msg, reciver);
             }
+            beans.setBotStatus(false);
        }
           
       }  

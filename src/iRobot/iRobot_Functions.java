@@ -12,6 +12,7 @@ import java.awt.Point;
 import java.awt.PointerInfo;
 import java.awt.Robot;
 import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -111,24 +112,23 @@ public class iRobot_Functions {
           Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
       }
   }
-  public void Send(String s)
-  {
-    byte[] bytes = s.getBytes();
-    for (byte b : bytes)
-    {
+    public void Send(String s) {
+        if (null == s) return;
+        Robot r = null;
+        char[] chars = s.toCharArray();
         try {
-            int code = b;
-            // keycode only handles [A-Z] (which is ASCII decimal [65-90])
-            if (code > 96 && code < 123) code = code - 32;
-            r = new Robot();
-            r.delay(40);
-            r.keyPress(code);
-            r.keyRelease(code);
+            for (char c : chars) {
+                int code = c;
+                int keyCode = KeyEvent.getExtendedKeyCodeForChar(code);
+                r = new Robot();
+                r.delay(40);
+                r.keyPress(keyCode);
+                r.keyRelease(keyCode);
+            } 
         } catch (AWTException ex) {
-            Logger.getLogger(iRobot_Functions.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(ex.getMessage());
         }
-    }
-  }
+    }   
   // Email Sender
   public void SendMail(String username, String password, String title, String msg, String reciver) {
         Properties props = new Properties();
