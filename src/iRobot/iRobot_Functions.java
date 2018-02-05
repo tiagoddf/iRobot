@@ -18,6 +18,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -26,6 +27,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -120,10 +122,29 @@ public class iRobot_Functions {
             for (char c : chars) {
                 int code = c;
                 int keyCode = KeyEvent.getExtendedKeyCodeForChar(code);
+                HashMap<String, String> map = new HashMap<String, String>();
+                map.put("!", "1");
+                map.put("@", "2");
+                map.put("#", "3");
+                boolean shiftRequired = false;
+                String key = String.valueOf(c);
+                String value = map.get(key);
+                if (value != null) {
+                    shiftRequired = true;
+                    key = value;
+                }
+                else if (Character.isUpperCase(key.charAt(0))) { shiftRequired = true; }
+                else { key = key.toUpperCase(); }
+                if (shiftRequired) {
+                    KeyStroke ks = KeyStroke.getKeyStroke("pressed " + key.toUpperCase());
+                    keyCode = ks.getKeyCode();
+                }
                 r = new Robot();
                 r.delay(40);
+                if (shiftRequired) { r.keyPress(KeyEvent.VK_SHIFT); }
                 r.keyPress(keyCode);
                 r.keyRelease(keyCode);
+                if (shiftRequired) { r.keyRelease(KeyEvent.VK_SHIFT); }
             } 
         } catch (AWTException ex) {
             System.err.println(ex.getMessage());

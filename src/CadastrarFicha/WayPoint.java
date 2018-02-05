@@ -23,6 +23,7 @@ public class WayPoint
   String admPass = "analistapss";
   // as senhas do email estão lá embaixo SELIGA
   
+  
   public void TreinarVega(beansCadastrarFicha beans)
   {
         t1 = new Thread(){   // thread 1
@@ -31,6 +32,10 @@ public class WayPoint
         while(beans.getBotStatus() == true) {
             iRobot_Functions irf = new iRobot_Functions();
             if(beans.getBotStatus()== true) {
+                System.out.println(beans.getNome());
+                System.out.println(beans.getSobreNome());
+                System.out.println(beans.getUsuario());
+                System.out.println(beans.getSenha());
                 /* Logando RDP */
                 irf.MouseClick("left", 105, 584); // desktop LXDE func
                 irf.Wait(1000);

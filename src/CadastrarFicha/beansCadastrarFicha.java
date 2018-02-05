@@ -14,6 +14,11 @@ public class beansCadastrarFicha {
     private String usuario;
     private String senha;
     
+    // transformar a primeira letra em maiuscula e o resto em minusculo
+    private static String capitalize(final String line) {
+      return Character.toUpperCase(line.charAt(0)) + line.substring(1).toLowerCase();
+    }
+    
     public boolean getBotStatus() {
         return rodandobot;
     }
@@ -41,13 +46,24 @@ public class beansCadastrarFicha {
     }
     
     public String getNome() {
-        return nome;
+        return capitalize(nome);
+        /* OUUUUUUUUUU \/ tbm ta funcionando
+        // pegar a primeira letra e colocar maiuscula
+        String pm = nome.toUpperCase();
+        char primeiraletra = pm.charAt(0);
+        // pegar todo o resto e colocar minuscula
+        //String resto = usuario.substring(1).toLowerCase();
+        String resto = nome.substring(1);
+        // retornar a nova string "Nome"
+        String nova = primeiraletra + resto;
+        return nova;
+        */
     }
     public void setNome(String str) {
         this.nome = str;
     }
     public String getSobreNome() {
-        return sobrenome;
+        return capitalize(sobrenome);
     }
     public void setSobreNome(String str) {
         this.sobrenome = str;
@@ -62,7 +78,7 @@ public class beansCadastrarFicha {
         usuario = primeiraletra + this.getSobreNome();
         String toLowerCase = usuario.toLowerCase();
         return toLowerCase;
-    }
+}
     public String getSenha() { 
         // primeira letra
         String nome1 = this.getNome();
